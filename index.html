@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PSN Trophy Level Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="assets/semantic.min.css" />
+    <script type="text/javascript" src="assets/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/style.css" />
+    <script type="text/javascript" src="assets/script.js"></script>
+</head>
+
+<body>
+    <div class="ui inverted raised text container segment">
+        <h1 class="ui header">PSN Trophy Level Calculator</h1>
+        <a class="ui grey right ribbon label" id="levels" style="float:left;">All Levels</a><br />
+        
+        <div class="ui inverted divider"></div>
+    
+        <form class="ui inverted form">
+            <h4 class="ui inverted header">Automatically try to fetch your trophies from <a href="https://psnprofiles.com" target="_blank">PSNProfiles</a></h4>
+            <div class="six wide field" id="automatic">
+                <label>PSN Name</label>
+                <div class="ui icon input loading">
+                    <input type="text" placeholder="Your PSN Name" name="psn" />
+                </div>
+            </div>
+            <div class="ui error message"></div>
+
+            <div class="ui inverted horizontal divider">Or</div>
+
+            <h4 class="ui inverted header">Manually enter your trophies <small>(make sure the PSN Name field is empty)</small></h4>
+            <div class="four fields" id="manual">
+                <div class="two wide field">
+                    <label>Platinum</label>
+                    <input type="number" name="platinum" placeholder="0" value="0" min="0" />
+                </div>
+                <div class="two wide field">
+                    <label>Gold</label>
+                    <input type="number" name="gold" placeholder="0" value="0" min="0" />
+                </div>
+                <div class="two wide field">
+                    <label>Silver</label>
+                    <input type="number" name="silver" placeholder="0" value="0" min="0" />
+                </div>
+                <div class="two wide field">
+                    <label>Bronze</label>
+                    <input type="number" name="bronze" placeholder="0" value="0" min="0" />
+                </div>
+            </div>
+
+            <button class="ui button" type="submit" id="calculate">Calculate</button>
+        </form>
+
+        <div class="ui inverted hidden container" id="result">
+            <div class="ui inverted divider"></div>
+
+            <div class="ui steps" id="steps">
+                <div class="ui active step segment" id="current">
+                    <div class="content">
+                        <div class="title" data-tooltip="Level">
+                            <i class="star icon gold"></i><span id="level">0</span> <small><i>(<span id="points">0</span>)</i></small>
+                        </div>
+                        <div class="description"><span id="points2">0</span> points</div>
+                    </div>
+
+                    <div class="ui bottom attached yellow progress" data-value="0" data-total="0" id="progress">
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <div class="step" id="next">
+                    <div class="content">
+                        <div class="title" data-tooltip="Level">
+                            <i class="star icon gold"></i><span id="level">0</span> <small><i>(<span id="points">0</span>)</i></small>
+                        </div>
+                        <div class="description"><span id="points2">0</span> needed</div>
+                    </div>
+                </div>
+                <div class="step" id="third">
+                    <div class="content">
+                        <div class="title" data-tooltip="Level">
+                            <i class="star icon gold"></i><span id="level">0</span> <small><i>(<span id="points">0</span>)</i></small>
+                        </div>
+                        <div class="description"><span id="points2">0</span> needed</div>
+                    </div>
+                </div>
+                <div class="step" id="fourth">
+                    <div class="content">
+                        <div class="title" data-tooltip="Level">
+                            <i class="star icon gold"></i><span id="level">0</span> <small><i>(<span id="points">0</span>)</i></small>
+                        </div>
+                        <div class="description"><span id="points2">0</span> needed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui big labels" id="trophies">
+                <span class="ui label" data-tooltip="Platinum" data-position="bottom center">
+                    <i class="trophy icon platinum"></i>
+                    <span id="platinum">0</span>
+                </span>
+                <span class="ui label" data-tooltip="Gold" data-position="bottom center">
+                    <i class="trophy icon gold"></i>
+                    <span id="gold">0</span>
+                </span>
+                <span class="ui label" data-tooltip="Silver" data-position="bottom center">
+                    <i class="trophy icon silver"></i>
+                    <span id="silver">0</span>
+                </span>
+                <span class="ui label" data-tooltip="Bronze" data-position="bottom center">
+                    <i class="trophy icon bronze"></i>
+                    <span id="bronze">0</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="ui hidden warning message"></div>
+    </div>
+    
+    <table class="ui inverted right aligned striped compact table modal" id="levels">
+        <thead>
+            <tr>
+                <th>Level</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">
+                    <div class="ui inverted right floated pagination menu">
+                        <a class="item" data-page="1">1</a>
+                        <a class="item" data-page="2">2</a>
+                        <a class="item" data-page="3">3</a>
+                        <a class="item" data-page="4">4</a>
+                        <a class="item" data-page="5">5</a>
+                    </div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

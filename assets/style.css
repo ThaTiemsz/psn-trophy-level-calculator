@@ -1,0 +1,82 @@
+body {
+    background: #363636;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9em;
+    margin: 2%;
+    height: 0% !important;
+}
+
+table#levels {
+    width: 284px !important;
+}
+
+.platinum {
+    color:#697998 !important;
+}
+
+.gold {
+    color:#DAA520 !important;
+}
+
+.silver {
+    color:#C0C0C0 !important;
+}
+
+.bronze {
+    color:#CD7F32 !important;
+}
+
+#progress {
+    margin-top: -3px;
+}
+
+.ui.progress .bar > .progress {
+    color: rgba(0,0,0,.87) !important;
+}
+
+.highlight {
+    /* color: #f2f; */
+    -webkit-animation: highlight linear 0.7s;
+    animation: highlight linear 0.7s;
+}
+
+@-webkit-keyframes highlight {
+    0% { opacity: 1; }
+    50% { opacity: .1; }
+    100% { opacity: 1; }
+}
+
+@keyframes highlight {
+    0% { opacity: 1; }
+    50% { opacity: .1; }
+    100% { opacity: 1; }
+}
+
+.transition.glow {
+    -webkit-animation-name: glow2 !important;
+    animation-name: glow2 !important
+}
+
+@-webkit-keyframes glow2 {
+    0% {
+        background-color: #333333
+    }
+    30% {
+        background-color: #333333
+    }
+    100% {
+        background-color: #333333
+    }
+}
+
+@keyframes glow2 {
+    0% {
+        background-color: #333333
+    }
+    30% {
+        background-color: #333333
+    }
+    100% {
+        background-color: #333333
+    }
+}
